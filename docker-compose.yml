@@ -1,0 +1,9 @@
+
+version: '2.2'
+
+services:
+
+  rack_base:
+    build:
+      context: .
+    image: cyberdojo/rack_base
