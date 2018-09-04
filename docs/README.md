@@ -1,10 +1,10 @@
 
-[![Build Status](https://travis-ci.org/cyber-dojo/rack_base.svg?branch=master)](https://travis-ci.org/cyber-dojo/rack_base)
+[![Build Status](https://travis-ci.org/cyber-dojo/rack-base.svg?branch=master)](https://travis-ci.org/cyber-dojo/rack-base)
 
 <img src="https://raw.githubusercontent.com/cyber-dojo/nginx/master/images/home_page_logo.png"
 alt="cyber-dojo yin/yang logo" width="50px" height="50px"/>
 
-# cyberdojo/rack_base docker image
+# cyberdojo/rack-base docker image
 
 - A base docker image for [cyber-dojo](http://cyber-dojo.org) rack-based services.
 - Speeds up docker builds.
