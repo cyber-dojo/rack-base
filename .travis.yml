@@ -14,5 +14,5 @@ script:
         && ./push_and_trigger.sh \
           cyber-dojo/differ \
           cyber-dojo/starter \
-          cyber-dojo/storer \
+          cyber-dojo/saver \
           cyber-dojo/zipper
