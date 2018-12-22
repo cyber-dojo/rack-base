@@ -13,13 +13,13 @@ jobs:
           name: build rack-base docker image and push image to docker hub
           command: |
             set -e
-            echo "${DOCKER_PASS}" \
-              | docker login -u "${DOCKER_USER}" --password-stdin
+            echo "${DOCKER_PASS}" | docker login -u "${DOCKER_USER}" --password-stdin
             ./pipe_build_up_test.sh
-            docker tag  cyberdojo/rack-base:latest cyberdojo/rack-base:${CIRCLE_SHA1:0:7}
-            docker tag  cyberdojo/rack-base:latest cyberdojo/rack-base:beta
-            docker push cyberdojo/rack-base:${CIRCLE_SHA1:0:7}
-            docker push cyberdojo/rack-base:beta
+            readonly project=${CIRCLE_PROJECT_REPONAME}
+            docker tag  cyberdojo/${project}:latest cyberdojo/${project}:${CIRCLE_SHA1:0:7}
+            docker tag  cyberdojo/${project}:latest cyberdojo/${project}:beta
+            docker push cyberdojo/${project}:${CIRCLE_SHA1:0:7}
+            docker push cyberdojo/${project}:beta
             curl --fail -X POST https://circleci.com/api/v1.1/project/github/cyber-dojo/differ/build?circle-token=${CIRCLECI_BUILD_TOKEN}
             curl --fail -X POST https://circleci.com/api/v1.1/project/github/cyber-dojo/saver/build?circle-token=${CIRCLECI_BUILD_TOKEN}
             curl --fail -X POST https://circleci.com/api/v1.1/project/github/cyber-dojo/zipper/build?circle-token=${CIRCLECI_BUILD_TOKEN}
