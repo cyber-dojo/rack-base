@@ -19,10 +19,8 @@ RUN apk --update --no-cache add \
 # install ruby gems
 # - - - - - - - - - - - - - -
 
-ARG             STORER_HOME=/app
-COPY Gemfile  ${STORER_HOME}/
-WORKDIR       ${STORER_HOME}
-
+COPY Gemfile /app
+WORKDIR /app
 RUN apk --update add --virtual build-dependencies build-base \
   && echo "gem: --no-rdoc --no-ri" > ~/.gemrc \
   && bundle config --global silence_root_warning 1 \
