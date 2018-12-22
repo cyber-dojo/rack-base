@@ -7,7 +7,7 @@ LABEL maintainer=jon@jaggersoft.com
 #      - tar-pipe test coverage out of /tmp tmpfs dir.
 # - - - - - - - - - - - - - -
 
-RUN apk --update --no-cache add \
+RUN apk --update --upgrade --no-cache add \
     bash \
     git \
     ruby-bundler \
@@ -19,9 +19,9 @@ RUN apk --update --no-cache add \
 # install ruby gems
 # - - - - - - - - - - - - - -
 
-COPY Gemfile /app/
 WORKDIR /app
-RUN apk --update add --virtual build-dependencies build-base \
+COPY Gemfile .
+RUN apk --update --upgrade add --virtual build-dependencies build-base \
   && echo "gem: --no-rdoc --no-ri" > ~/.gemrc \
   && bundle config --global silence_root_warning 1 \
   && bundle install \
