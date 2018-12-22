@@ -19,7 +19,7 @@ RUN apk --update --no-cache add \
 # install ruby gems
 # - - - - - - - - - - - - - -
 
-COPY Gemfile /app
+COPY Gemfile /app/
 WORKDIR /app
 RUN apk --update add --virtual build-dependencies build-base \
   && echo "gem: --no-rdoc --no-ri" > ~/.gemrc \
