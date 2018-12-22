@@ -1,0 +1,35 @@
+version: 2
+jobs:
+  build-image:
+
+    machine:
+      enabled: true
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      - run:
+          name: build rack-base docker image and push image to docker hub
+          command: |
+            set -e
+            echo "${DOCKER_PASS}" \
+              | docker login -u "${DOCKER_USER}" --password-stdin
+            ./pipe_build_up_test.sh
+            docker tag  cyberdojo/rack-base:latest cyberdojo/rack-base:${CIRCLE_SHA1:0:7}
+            docker tag  cyberdojo/rack-base:latest cyberdojo/rack-base:beta
+            docker push cyberdojo/rack-base:${CIRCLE_SHA1:0:7}
+            docker push cyberdojo/rack-base:beta
+            #curl -X POST https://circleci.com/api/v1.1/project/:vcs-type/:username/:project/build?circle-token=:token
+            curl -X POST https://circleci.com/api/v1.1/project/github/cyber-dojo/saver/build?circle-token=${CCI_TRIGGER}
+
+workflows:
+  version: 2
+  build-publish:
+    jobs:
+      - build-image:
+          context: cyberdojo-context
+          filters:
+            branches:
+              only:
+                  - master
