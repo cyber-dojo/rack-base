@@ -22,6 +22,10 @@ jobs:
             docker push cyberdojo/rack-base:beta
             curl --fail -X POST https://circleci.com/api/v1.1/project/github/cyber-dojo/differ/build?circle-token=${CIRCLECI_BUILD_TOKEN}
             curl --fail -X POST https://circleci.com/api/v1.1/project/github/cyber-dojo/saver/build?circle-token=${CIRCLECI_BUILD_TOKEN}
+            curl --fail -X POST https://circleci.com/api/v1.1/project/github/cyber-dojo/zipper/build?circle-token=${CIRCLECI_BUILD_TOKEN}
+            curl --fail -X POST https://circleci.com/api/v1.1/project/github/cyber-dojo/starter/build?circle-token=${CIRCLECI_BUILD_TOKEN}
+            curl --fail -X POST https://circleci.com/api/v1.1/project/github/cyber-dojo/porter/build?circle-token=${CIRCLECI_BUILD_TOKEN}                        
+            curl --fail -X POST https://circleci.com/api/v1.1/project/github/cyber-dojo/start-points-base/build?circle-token=${CIRCLECI_BUILD_TOKEN}
 
 workflows:
   version: 2
