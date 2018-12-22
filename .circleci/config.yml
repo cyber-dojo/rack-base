@@ -20,8 +20,8 @@ jobs:
             docker tag  cyberdojo/rack-base:latest cyberdojo/rack-base:beta
             docker push cyberdojo/rack-base:${CIRCLE_SHA1:0:7}
             docker push cyberdojo/rack-base:beta
-            # ./.circleci/trigger_dependent_projects.sh "${CIRCLECI_BUILD_TOKEN}"
-            curl -X POST https://circleci.com/api/v1.1/project/github/cyber-dojo/saver/build?circle-token=${CIRCLECI_BUILD_TOKEN}
+            ./.circleci/trigger_dependent_projects.sh "${CIRCLECI_BUILD_TOKEN}"
+            #curl --fail -X POST https://circleci.com/api/v1.1/project/github/cyber-dojo/saver/build?circle-token=${CIRCLECI_BUILD_TOKEN}
 
 
 workflows:
