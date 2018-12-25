@@ -9,7 +9,6 @@ set -e
 
 apk --update --upgrade --no-cache add \
     bash \
-    git \
     ruby-dev \
     ruby-bundler \
     tar
