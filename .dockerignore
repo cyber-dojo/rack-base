@@ -1,6 +1,8 @@
-# ignore everything
+#---- ignore everything
+
 *
 
-# !except these
+#---- !except these
+
 !Gemfile
 !install.sh
