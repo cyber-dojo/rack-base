@@ -4,8 +4,8 @@ set -ev
 declare -r SHA="${1}"
 declare -r REPO_URLS="${@:2}"
 
-for REPO_URL in ${REPO_URLS}; do             # eg https://github.com/cyber-dojo/differ.git
-  local -r REPO_NAME=$(basename "${1}" .git) # eg differ
+for REPO_URL in ${REPO_URLS}; do                      # eg https://github.com/cyber-dojo/differ.git
+  declare -r REPO_NAME=$(basename "${REPO_URL}" .git) # eg differ
   cd /tmp
   git clone "${REPO_URL}"
   cd "${REPO_NAME}"
