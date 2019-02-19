@@ -28,14 +28,15 @@ jobs:
           name: trigger dependent repos
           command: |
             set -ev
-            #curl --fail -X POST https://circleci.com/api/v1.1/project/github/cyber-dojo/differ/build?circle-token=${CIRCLECI_BUILD_TOKEN}
-            # curl --fail -X POST https://circleci.com/api/v1.1/project/github/cyber-dojo/saver/build?circle-token=${CIRCLECI_BUILD_TOKEN}
-            # curl --fail -X POST https://circleci.com/api/v1.1/project/github/cyber-dojo/zipper/build?circle-token=${CIRCLECI_BUILD_TOKEN}
-            # curl --fail -X POST https://circleci.com/api/v1.1/project/github/cyber-dojo/starter/build?circle-token=${CIRCLECI_BUILD_TOKEN}
-            # curl --fail -X POST https://circleci.com/api/v1.1/project/github/cyber-dojo/start-points-base/build?circle-token=${CIRCLECI_BUILD_TOKEN}
             ./sh/trigger_dependent_repos.sh "${CIRCLE_SHA1:0:7}" \
-               https://github.com/cyber-dojo/differ.git     \
-               https://github.com/cyber-dojo/saver.git
+               https://github.com/cyber-dojo/differ.git    \
+               https://github.com/cyber-dojo/saver.git     \
+               https://github.com/cyber-dojo/zipper.git    \
+               https://github.com/cyber-dojo/starter.git   \
+               https://github.com/cyber-dojo/porter.git    \
+               https://github.com/cyber-dojo/mapper.git    \
+               https://github.com/cyber-dojo/ragger.git    \
+               https://github.com/cyber-dojo/start-points-base.git
 
 workflows:
   version: 2
