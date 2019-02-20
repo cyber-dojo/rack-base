@@ -1,5 +1,4 @@
 
-[![Build Status](https://travis-ci.org/cyber-dojo/rack-base.svg?branch=master)](https://travis-ci.org/cyber-dojo/rack-base)
 [![CircleCI](https://circleci.com/gh/cyber-dojo/rack-base.svg?style=svg)](https://circleci.com/gh/cyber-dojo/rack-base)
 
 <img src="https://raw.githubusercontent.com/cyber-dojo/nginx/master/images/home_page_logo.png"
