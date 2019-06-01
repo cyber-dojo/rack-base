@@ -12,13 +12,13 @@ jobs:
       - run:
           name: build docker image
           command: |
-            set -ev
+            set -e
             ./pipe_build_up_test.sh
       - run:
           name: publish tagged docker image on dockerhub
           command: |
-            set -ev
-            readonly project=rack-base
+            set -e
+            readonly project=${CIRCLE_PROJECT_REPONAME}
             docker tag  cyberdojo/${project}:latest cyberdojo/${project}:${CIRCLE_SHA1:0:7}
             docker tag  cyberdojo/${project}:latest cyberdojo/${project}:beta
             echo "${DOCKER_PASS}" | docker login -u "${DOCKER_USER}" --password-stdin
@@ -28,7 +28,7 @@ jobs:
       - run:
           name: trigger dependent repos
           command: |
-            set -ev
+            set -e
             ./sh/trigger_dependent_repos.sh                        \
                "${CIRCLE_SHA1:0:7}"                                \
                  https://github.com/cyber-dojo/differ.git          \
@@ -37,11 +37,7 @@ jobs:
                  https://github.com/cyber-dojo/porter.git          \
                  https://github.com/cyber-dojo/mapper.git          \
                  https://github.com/cyber-dojo/ragger.git          \
-                 https://github.com/cyber-dojo/starter-base.git    \
-                 https://github.com/cyber-dojo/start-points-base.git
-            # old architecture
-            ./sh/trigger_dependent_repos.sh "${CIRCLE_SHA1:0:7}" \
-               https://github.com/cyber-dojo/starter.git
+                 https://github.com/cyber-dojo/starter-base.git
 
 workflows:
   version: 2
