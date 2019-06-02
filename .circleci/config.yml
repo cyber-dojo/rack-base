@@ -10,7 +10,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: build Docker image
+          name: Build docker image
           command: |
             set -e
             ./pipe_build_up_test.sh
@@ -37,8 +37,7 @@ jobs:
             TRIGGER=trigger-dependent-repos.sh
             curl -O --fail ${CIRCLECI_SCRIPT_DIR}/${TRIGGER}
             chmod 700 ./${TRIGGER}
-            # ./${TRIGGER} \
-              differ mapper porter ragger saver starter-base zipper
+            # ./${TRIGGER} differ mapper porter ragger saver starter-base zipper
 
 workflows:
   version: 2
