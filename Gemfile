@@ -4,5 +4,6 @@ gem 'rack'
 gem 'thin'
 gem 'prometheus-client'
 
-gem 'simplecov'
 gem 'minitest'
+gem 'ruby-prof'
+gem 'simplecov'
