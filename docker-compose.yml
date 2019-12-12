@@ -6,4 +6,5 @@ services:
   rack-base:
     build:
       context: .
+      args: [ SHA ]      
     image: cyberdojo/rack-base

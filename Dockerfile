@@ -1,14 +1,14 @@
-FROM alpine:latest
+FROM cyberdojo/ruby-base:latest
 LABEL maintainer=jon@jaggersoft.com
+
+ARG SHA
+ENV SHA=${SHA}
 
 WORKDIR /app
 COPY Gemfile .
 
 # tar is needed to tar-pipe test coverage out of /tmp tmpfs
 RUN apk --update --upgrade --no-cache add \
-    bash \
-    ruby-dev \
-    ruby-bundler \
     tar && \
 \
 apk add --update --upgrade --virtual \
