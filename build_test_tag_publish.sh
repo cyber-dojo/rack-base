@@ -103,7 +103,7 @@ on_ci_trigger_dependent_images()
   local -r from_repo="$(my_name)"
   local -r from_sha="$(git_commit_sha)"
   local -r to_org=cyber-dojo
-  local -r to_repos="differ ragger saver sinatra-base start-points-base "
+  local -r to_repos="differ saver sinatra-base start-points-base "
   $(trigger_script_path) \
     "${from_org}" "${from_repo}" "${from_sha}" \
     "${to_org}" "${to_repos}"
