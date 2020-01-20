@@ -1,1 +1,1 @@
-Automated build trigger from https://github.com/cyber-dojo/ruby-base/commit/3f7bd453fc96f2589d7d66a9d553f8944496efdf
+Automated build trigger from https://github.com/cyber-dojo/ruby-base/commit/a63c0cb50b31ec24e69cb6e2623bcef73ac4c2d6
