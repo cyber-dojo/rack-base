@@ -1,5 +1,4 @@
-#!/bin/bash
-set -e
+#!/bin/bash -Eeu
 
 readonly ROOT_DIR="$( cd "$( dirname "${0}" )" && pwd )"
 
@@ -138,4 +137,4 @@ build_image
 tag_image
 assert_equal SHA "$(git_commit_sha)" "$(image_sha)"
 on_ci_publish_tagged_image
-on_ci_trigger_dependent_images
+#on_ci_trigger_dependent_images
