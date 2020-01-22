@@ -72,7 +72,11 @@ on_ci_publish_tagged_image()
 # - - - - - - - - - - - - - - - - - - - - - - - -
 on_ci()
 {
+  set +u
   [ -n "${CIRCLECI}" ]
+  local -r result=$?
+  set -u
+  [ "${result}" == '0' ]
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - -
