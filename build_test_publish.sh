@@ -1,6 +1,6 @@
 #!/bin/bash -Eeu
 
-readonly ROOT_DIR="$( cd "$( dirname "${0}" )" && pwd )"
+readonly ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # - - - - - - - - - - - - - - - - - - - - - - - -
 build_image()
@@ -62,11 +62,8 @@ on_ci_publish_tagged_image()
   echo 'on CI so publishing tagged image'
   local -r image="$(image_name)"
   local -r tag="$(image_tag)"
-  # DOCKER_USER, DOCKER_PASS are in ci context
-  echo "${DOCKER_PASS}" | docker login --username "${DOCKER_USER}" --password-stdin
   docker push ${image}:latest
   docker push ${image}:${tag}
-  docker logout
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - -
