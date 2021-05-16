@@ -1,4 +1,4 @@
-FROM cyberdojo/ruby-base:04a5520
+FROM cyberdojo/ruby-base:a6498a6
 LABEL maintainer=jon@jaggersoft.com
 
 # tar is needed to tar-pipe test coverage out of /tmp tmpfs
