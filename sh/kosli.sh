@@ -58,7 +58,7 @@ kosli_assert_artifact()
 # - - - - - - - - - - - - - - - - - - -
 artifact_name()
 {
-  echo "(image_name):$(image_tag)"
+  echo "$(image_name):$(image_tag)"
 }
 
 # - - - - - - - - - - - - - - - - - - -
