@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=cyberdojo/ruby-base:f488ed1
+ARG BASE_IMAGE=cyberdojo/ruby-base:36ecffe
 FROM ${BASE_IMAGE}
 LABEL maintainer=jon@jaggersoft.com
 
