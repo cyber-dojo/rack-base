@@ -1,3 +1,5 @@
+This repo is no longer in use and is Archived.
+
 [![Github Action (main)](https://github.com/cyber-dojo/rack-base/actions/workflows/main.yml/badge.svg)](https://github.com/cyber-dojo/rack-base/actions)
 
 # cyberdojo/rack-base docker image
