@@ -1,0 +1,9 @@
+
+services:
+
+  rack-base:
+    build:
+      context: .
+      args:
+        - COMMIT_SHA
+    image: ${CYBER_DOJO_RACK_BASE_IMAGE}:${CYBER_DOJO_RACK_BASE_TAG}
